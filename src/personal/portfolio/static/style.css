@@ -1,0 +1,140 @@
+
+body,html {
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+        }
+
+.intro-text-row {
+     font-size: 70px;
+     font-size: calc(1em + 5.05vmax);
+     line-height: calc(20px + 4.8vmax);
+}
+
+@media (min-width: 576px) {
+    .intro-text-row, .arrow-big-view, .arrow-small-view {
+            font-size:calc(2.8em + 3vw);
+            line-height: calc(0.75em + 1vh + 1.5vw);
+    }
+}
+
+@media (min-width: 992px) {
+    .intro-text-row, .arrow-big-view, .arrow-small-view {
+        font-size:calc(1.7em + 2.8vw);
+        line-height: calc(0.75em + 1vh + 0.7vw);
+
+    }
+
+}
+
+.img-description {
+    font-size: 13px;
+    line-height: 15px;
+}
+
+.img-description p{
+    padding-left: 2px;
+    padding-right: 2px;
+}
+
+.my-auto {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.image-row {
+    margin-top: 7.5vh;
+}
+
+.new-image-row {
+    margin-top: 7.5vh;
+}
+
+
+.new-image-row img {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+.image-row img {
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 6px;
+    padding-right: 6px;
+}
+
+
+.image-row a:link, a:hover, a:visited, a:active {
+    color: black;
+    text-decoration: none;
+}
+
+.new-image-row a:link, a:hover, a:visited, a:active {
+    color: black;
+    text-decoration: none;
+}
+
+#myButton {
+    border: none;
+    background: none;
+}
+
+/*
+.responsiveText a:hover {
+    text-decoration: underline;
+    text-decoration-color: yellow;
+}
+*/
+
+.responsiveText a:link {
+    color: blue;
+    font-weight: 700;
+}
+/*
+.responsiveText a:hover {
+    background: yellow;
+    color: #e3e15f;
+}
+*/
+.responsiveText a:visited {
+    color: blue;
+}
+
+.responsiveText a:active {
+    color: blue;
+}
+
+/*
+
+.my-col {
+    border-width: 2px;
+    border-style: solid;
+    border-color: green;
+}
+
+.my-row {
+    border-width: 2px;
+    border-style: solid;
+    border-color: red;
+}
+
+.left-col {
+border-width: 2px;
+    border-style: solid;
+    border-color: yellow;
+}
+
+.right-col {
+border-width: 2px;
+    border-style: solid;
+    border-color: orange;
+}
+
+.first-row {
+border-width: 2px;
+    border-style: solid;
+    border-color: black;
+}
+*/

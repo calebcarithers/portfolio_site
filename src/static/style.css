@@ -1,0 +1,89 @@
+
+body,html {
+    height: 100%;
+    font-family: 'Roboto', sans-serif;
+        font-weight: 400;
+        }
+
+.intro-text-row {
+     font-size: 70px;
+     font-size: calc(1em + 5.05vmax);
+     line-height: calc(20px + 4.8vmax);
+}
+
+@media (min-width: 576px) {
+    .intro-text-row, .arrow-big-view, .arrow-small-view {
+            font-size:calc(2.8em + 3.6vw);
+            line-height: calc(0.75em + 1vh);
+    }
+}
+
+@media (min-width: 992px) {
+    .intro-text-row, .arrow-big-view, .arrow-small-view {
+        font-size:calc(1.7em + 2.8vw);
+        line-height: calc(0.75em + 1vh + 0.5vw);
+
+    }
+
+}
+
+.headTitleCol {
+    height: 90vh;
+}
+
+.img-description {
+    font-size: 13px;
+    line-height: 15px;
+}
+
+.my-auto {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.image-row {
+    margin-top: 7.5vh;
+}
+
+.new-image-row {
+    margin-top: 7.5vh;
+}
+
+.break-row-big {
+    margin-top: 7.5vh;
+}
+
+.break-row-small {
+    margin-top: 0px;
+}
+
+.new-image-row img {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.image-row img {
+    padding-top: 4px;
+    padding-bottom: 4px;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+
+.image-row a:link, a:hover, a:visited, a:active {
+    color: black;
+    text-decoration: none;
+}
+
+.new-image-row a:link, a:hover, a:visited, a:active {
+    color: black;
+    text-decoration: none;
+}
+
+#myButton {
+    border: none;
+    background: none;
+}
+

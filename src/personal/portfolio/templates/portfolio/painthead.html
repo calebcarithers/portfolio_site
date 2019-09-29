@@ -1,0 +1,92 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <head>
+        <meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,width=device-width">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="{% static "PaintStyle.css" %}">
+
+        <script src="{% static "Resources/Libraries/p5.min.js" %}"></script>
+<!--        <script language="javascript" type="text/javascript" src="Resources/Libraries/p5.dom.js"></script>-->
+        <script language="javascript" type="text/javascript" src="{% static "Resources/Libraries/p5.sound.min.js" %}"></script>
+        <script language="javascript" type="text/javascript" src="{% static "Resources/Scripts/painthead.js" %}"></script>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122350886-1"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-122350886-1');
+        </script>
+
+        <title>something really selfish</title>
+    </head>
+    <body>
+
+<!--
+        <div id="back">
+            <a href="/index.html" style="text-decoration: underline;">back</a>
+            <a href="what-painthead.html" style="text-decoration: none; padding-left: 1em;">what</a>
+        </div>
+-->
+
+
+        <div id="paintInfo">
+        scroll through gallery;<br>
+        <strong>scream</strong> until one word is left<br><br>
+
+        <div id="forTheButton">
+            click this to:
+            <button type="button" onclick="resumeMic()">start</button></div>
+        </div>
+
+    <div id="paintContent">
+        <div id="container1"></div> <br>
+
+        <div id="container2"></div> <br>
+
+        <div id="container3"></div> <br>
+
+        <div id="container4"></div> <br>
+
+        <div id="container5"></div> <br>
+
+        <div id="container6"></div> <br>
+
+        <div id="container7"></div> <br>
+
+        <div id="container8"></div> <br>
+
+        <div id="container9"></div> <br>
+
+        <div id="container10"></div> <br>
+
+        <div id="container11"></div> <br>
+
+        <div id="container12"></div> <br>
+
+        <div id="container13"></div> <br>
+
+        <div id="container14"></div> <br>
+
+        <div id="container15"></div> <br>
+
+        <div id="container16"></div> <br>
+
+        <div id="container17"></div>
+
+<!--
+        <div id="credits">paint - microsoft paint <br>
+        skin crawler - shel silverstein <br>
+        words - mark baldyga <br>
+        calvin and hobbes - bill watterson <br>
+        </div>
+-->
+    </div>
+    </body>
+</html>

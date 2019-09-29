@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Admiral Raddis - Nebula</title>
+      <link rel="stylesheet" href="{% static "Nebula/TemplateData/style.css" %}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <script src="{% static "Nebula/TemplateData/UnityProgress.js" %}"></script>
+    <script src="{% static "Nebula/Build/UnityLoader.js" %}"></script>
+    <script>
+      var unityInstance = UnityLoader.instantiate("unityContainer", "{% static "Nebula/Build/FinalBuild_WEB_Mobile17.0.json" %}",
+        {
+            onProgress: UnityProgress,
+            Module: {
+            backgroundColor: '#000000',
+        }});
+    </script>
+      <style>
+          #unityContainer {
+/*              width: 512px;*/
+              height: 520px;
+              padding-top: 200px;
+          }
+          
+          body {
+              align-content: center;
+              text-align: center;
+              height: 100%;
+/*              background: black;*/
+              background-image: url(" {% static "Resources/Photos/Nebula/bodybackground.jpg" %}")
+          }
+          
+          .my-col {
+              padding-top: 2em;
+              padding-bottom: 2em;
+              font-family: monospace;
+              color: white;
+          }
+          
+          .my-row {
+              padding-top: 5em;
+          }
+      </style>
+  </head>
+  <body>
+    <div class="container">
+        <div class="row justify-content-center my-row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/wSmsm1jLle0" allow="accelerometer; autoplay; encrypted-media; gyroscope;" allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row justify-content-center">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 my-col">
+                <div class="webgl-content">
+                    <div id="unityContainer"></div>
+                </div>
+                <div id="test" style="text-align: left; line-height: 1em; font-size: 10px; padding-top: 0.25em;">
+                Desktop:<br>
+                    -'1'/'2' to toggle first/second person (if mushroom eaten)<br>
+                    -'Q'/'W' to pan in first person<br>
+                    -'f' to fire (if flower eaten)<br>
+                    -'space' to jump<br><br>
+                Mobile: <span style="color: lightgray">(semi-supported)</span><br>
+                    -controls displayed, tap each to clear instruction text
+                </div>
+            </div>
+        </div>
+    </div>
+      
+      
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+      
+  </body>
+</html>

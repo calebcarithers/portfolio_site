@@ -1,0 +1,16 @@
+{
+"companyName": "DefaultCompany",
+"productName": "Admiral_Game",
+"productVersion": "0.1",
+"dataUrl": "FinalBuild_WEB_Mobile17.0.data.unityweb",
+"wasmCodeUrl": "FinalBuild_WEB_Mobile17.0.wasm.code.unityweb",
+"wasmFrameworkUrl": "FinalBuild_WEB_Mobile17.0.wasm.framework.unityweb",
+"graphicsAPI": ["WebGL 2.0","WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Light",
+"backgroundColor": "#808080",
+"cacheControl": {"default": "must-revalidate"},
+"developmentBuild": false,
+"multithreading": false,
+"unityVersion": "2019.2.0f1"
+}

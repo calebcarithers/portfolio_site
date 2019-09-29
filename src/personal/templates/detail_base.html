@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Favicon   -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/static/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/static/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/static/favicon-16x16.png">
+    <link rel="manifest" href="/static/site.webmanifest">
+    <link rel="mask-icon" href="/static/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122350886-3"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-122350886-3');
+    </script>
+
+<!-- jQuery   -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap CSS file -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<!--    <link rel="stylesheet" type="text/css" href="/static/style.css">-->
+
+    <!-- Google Font Below-->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
+
+    {% block head %}{% endblock %}
+
+    <style>
+        .intro-text-row {
+             font-size: calc(1em + 4.5vmax);
+             line-height: calc(20px + 4vmax);
+             font-weight: 400;
+        }
+
+        @media (min-width: 576px) {
+            .intro-text-row, .arrow {
+                    font-size:calc(1.5em + 2.6vw);
+                    line-height: calc(0.75em + 1vh + 0.5vw);
+            }
+        }
+
+        @media (min-width: 992px) {
+            .intro-text-row, .arrow-big-view {
+                font-size:calc(1.7em + 2vw);
+                line-height: calc(0.75em + 1vh + 0.4vw);
+            }
+        }
+
+        .intro-text-row a {
+            color: blue;
+            text-decoration: none;
+        }
+
+        .arrow a {
+            color: black;
+            text-decoration: none;
+        }
+
+        .detailText a {
+            padding-left: 2px;
+            padding-right: 2px;
+        }
+    </style>
+</head>
+
+<body>
+
+    {% block content %} {% endblock %}
+
+    <script>
+        $(document).ready(function() {
+            function isTouchDevice() {
+                return 'ontouchstart' in document.documentElement;
+            }
+
+            if (isTouchDevice()) {
+                $('.arrow').find('a').on('touchstart', function() {
+                    $(this).css({"background":"yellow", "color":"#e3e15f"});
+                }).on('touchend', function() {
+                    $(this).css({"background":"none", "color":"black"});
+                })
+
+                $('.detailText').find('a').on('touchstart', function() {
+                    $(this).css({"background":"yellow", "color":"#e3e15f"});
+                }).on('touchend', function() {
+                    $(this).css({"background":"none", "color":"blue"});
+                })
+            } else {
+                $('.arrow').find('a').on('mouseover', function() {
+                    $(this).css({"background":"yellow", "color":"#e3e15f"});
+                }).on('mouseleave', function() {
+                    $(this).css({"background":"none", "color":"black"});
+                })
+
+                $('.detailText').find('a').on('mouseover', function() {
+                    $(this).css({"background":"yellow", "color":"#e3e15f"});
+                }).on('mouseleave', function() {
+                    $(this).css({"background":"none", "color":"blue"});
+                })
+            }
+
+        })
+    </script>
+
+    <!-- JS files: jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

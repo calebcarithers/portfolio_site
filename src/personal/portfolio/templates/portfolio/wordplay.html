@@ -1,0 +1,379 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<head>
+<!--    <link rel="stylesheet" type="text/css" href="style.css">-->
+    <script src="{% static "Resources/Libraries/p5.min.js" %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+
+	<title>word play</title>
+
+    <style>
+        body {background-color: rgb(5, 5, 5);}
+/*        button:focus { outline: 0; } */
+
+    </style>
+</head>
+
+
+<body>
+    <div id="wordplay-info" style="width: 250px; margin: auto; text-align: center;">
+
+        <p style="color: #525252; font-family: helvetica, sans-serif; font-size: 12px; text-align: center; line-height: 12px; margin-bottom: -13px;">select "Listen"<br> speak a single word<br> repeat</p><br>
+
+        <button id="btn" style="color: darkgrey; background: black; outline: none; width: 70px;">Listen</button>
+
+        <p id="speechIndicator" style="color: #525252; font-family: helvetica, sans-serif; font-size: 12px; text-align: center; margin-top: 8px"></p>
+    </div>
+
+    <div class="speech_output"></div>
+    <div class="anagram_output"></div>
+    <div class="to_delete"></div>
+
+
+
+    <div id="sketch-holder"></div>
+
+    <script>
+        //NOTES: There is a bug where anagramica returns a scrambled version of the inputted word and the inputted word in else where in the returned JSON other than [0].
+
+        // Bug with invariants, this POS type retuns items such as Kansas (noun) deeper in the response.
+
+        // Good invariant to include is "um"
+
+        // det_pronoun example "each"
+
+        // current position of setting random variables happens each time a response is recieved
+
+        //the word dicionary breaks anagram API
+
+        //HUGE BUG, ANY WORD OVER 10 LETTERS WILL NOT GET RESPONSE FROM ANAGRAM API
+
+        var windowWidth = window.innerWidth;
+        var windowHeight = window.innerHeight;
+
+        var verb = new Array();
+        var adjective = new Array();
+        var noun = new Array();
+        var conjunction = new Array();
+        var determiner = new Array();
+        var preposition = new Array();
+        var adverb = new Array();
+        var invariant = new Array();
+        var interjection = new Array();
+        var det_pronoun = new Array();
+        var pronoun = new Array();
+        var participle = new Array();
+        var numeral = new Array();
+
+        var thisResponse = [];
+        var holdSentences = [];
+        var allWordsFormed = [];
+        var numberSentences = 5;
+        var randSentence; //generate random number based on the amount of sentence structures formed
+        var word, currentText;
+        var someResult;
+        var testWord;
+        var randNoun1, randNoun2, randVerb1, randVerb2, randDet, randAdverb;
+
+        console.log("This isn't done yet :D");
+
+        var proxy = 'https://cors-anywhere.herokuapp.com/';
+
+        var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+        var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
+        var SpeechRecognitionEvent = SpeechRecognitionEvent || webkitSpeechRecognitionEvent;
+
+        var recognition = new SpeechRecognition();
+        recognition.lang = 'en-US';
+
+        var clickCount = 0;
+        document.getElementById("btn").addEventListener("click", function() {
+            clickCount+=1;
+            randSentence = Math.floor(Math.random() * Math.floor(numberSentences + 1));
+            //console.log(clickCount);
+        });
+
+        document.getElementById("btn").addEventListener("click", function(){
+        recognition.start();
+    document.getElementById("speechIndicator").innerHTML = "Speak a word. I'm listening...";
+});
+
+        recognition.onerror = function(event) {
+            document.getElementById("speechIndicator").innerHTML = "Didn't get that. Say it again?";
+        }
+
+        recognition.onresult = function(event) {
+            var last = event.results.length - 1;
+//            console.log(event.results);
+//            for (i = 0; i < last; i++) {
+//                console.log(event.results[i]);
+//            }
+            var word = event.results[last][0].transcript;
+//            console.log(word);
+//            console.log(word.length);
+//
+            document.getElementById("speechIndicator").innerHTML = "Word recognized: " + word;
+
+            var myURL = 'http://www.anagramica.com/all/:' + word; //TESTING
+
+            $.ajax({
+                url: proxy + myURL,
+                fail: function(data) {
+                    console.log('this didnt work' + data);
+                },
+                complete:function(data){
+                    //console.log(data.responseJSON.all);
+
+                    for (var i = data.responseJSON.all.length - 1; i >= 0; i--) {
+                        if ((data.responseJSON.all[i].length == 1) && (data.responseJSON.all[i] !== "a") || (data.responseJSON.all[i] == "kc")) {
+//                            console.log(data.responseJSON.all[i]);
+                            someResult = data;
+                            someResult.responseJSON.all.splice(i,1);
+
+                        }
+                    }
+
+                    for (var p = 0; p < someResult.responseJSON.all.length; p++) {
+                        allWordsFormed.push(someResult.responseJSON.all[p]);
+                    }
+
+                    var APIkey = "dict.1.1.20181124T041325Z.e581716fc8d92efb.c64dc11cd7db2b6a9ae026ee97a33f55e62077c5";
+
+                    $.each(someResult.responseJSON.all, function(index, val){
+                var defURL = "https://dictionary.yandex.net/api/v1/dicservice.json/lookup?key=" + APIkey + "&lang=en-en&text=" + val;
+                thisResponse.push(
+                    $.ajax({
+                        url: defURL,
+                        success: function(data) {
+                            //console.log(data);
+                        }
+                    })
+                );
+            });
+
+                    $.when.apply($, thisResponse).then(function(){
+                for (var i = 0; i < thisResponse.length; i++) {
+                    //console.log(thisResponse[i].responseJSON.def[0].pos);
+
+                    if (thisResponse[i].responseJSON.def.length !== 0) {
+
+                    if (thisResponse[i].responseJSON.def[0].pos == 'noun') {
+                        noun.push(thisResponse[i].responseJSON.def[0].text);
+                    } else if (thisResponse[i].responseJSON.def[0].pos == 'verb') {
+                        verb.push(thisResponse[i].responseJSON.def[0].text);
+                    } else if (thisResponse[i].responseJSON.def[0].pos == 'adjective') {
+                        adjective.push(thisResponse[i].responseJSON.def[0].text);
+                    } else if (thisResponse[i].responseJSON.def[0].pos == 'conjunction') {
+                        conjunction.push(thisResponse[i].responseJSON.def[0].text);
+                    } else if (thisResponse[i].responseJSON.def[0].pos == 'noun') {
+                        noun.push(thisResponse[i].responseJSON.def[0].text);
+                    } else if (thisResponse[i].responseJSON.def[0].pos == 'determiner') {
+                        determiner.push(thisResponse[i].responseJSON.def[0].text);
+                    } else if (thisResponse[i].responseJSON.def[0].pos == 'preposition') {
+                        preposition.push(thisResponse[i].responseJSON.def[0].text);
+                    } else if (thisResponse[i].responseJSON.def[0].pos == 'adverb') {
+                        adverb.push(thisResponse[i].responseJSON.def[0].text);
+                    } else if (thisResponse[i].responseJSON.def[0].pos == 'invariant') {
+                        invariant.push(thisResponse[i].responseJSON.def[0].text);
+                    } else if (thisResponse[i].responseJSON.def[0].pos == 'interjection') {
+                        interjection.push(thisResponse[i].responseJSON.def[0].text);
+                    } else if (thisResponse[i].responseJSON.def[0].pos == 'determiner / pronoun') {
+                        det_pronoun.push(thisResponse[i].responseJSON.def[0].text);
+                    } else if (thisResponse[i].responseJSON.def[0].pos == 'pronoun') {
+                        pronoun.push(thisResponse[i].responseJSON.def[0].text);
+                    } else if (thisResponse[i].responseJSON.def[0].pos == 'participle') {
+                        participle.push(thisResponse[i].responseJSON.def[0].text);
+                    } else if (thisResponse[i].responseJSON.def[0].pos == 'numeral') {
+                        numeral.push(thisResponse[i].responseJSON.def[0].text);
+                    } else if (thisResponse[i].responseJSON.def[0].pos == 'undefined'){}
+                    else {
+                        //console.log('idk what pos that is: ' + thisResponse[i].responseJSON.def[0].pos);
+                    }
+                }
+                }
+                //create random numbers and add sentences to an array here
+                randVerb1 = Math.floor(Math.random() * Math.floor(verb.length));
+                randVerb2 = Math.floor(Math.random() * Math.floor(verb.length));
+                randNoun1 = Math.floor(Math.random() * Math.floor(noun.length));
+                randNoun2 = Math.floor(Math.random() * Math.floor(noun.length));
+                randDet = Math.floor(Math.random() * Math.floor(determiner.length));
+                randAdverb = Math.floor(Math.random() * Math.floor(adverb.length));
+
+
+                if (clickCount%2 == 0) {
+                    if ((noun.length !== 0) && (determiner.length !== 0) && (verb.length !== 0)) {
+                        holdSentences.push(sentenceStruc6(verb[randVerb1], determiner[randDet], noun[randNoun2], verb[randVerb2]));
+                    } else if ((adverb.length !== 0) && (verb.length !== 0) && (noun.length !== 0)) {
+                        holdSentences.push(sentenceStruc3(adverb[randAdverb], verb[randVerb1], noun[randNoun1], verb[randVerb2]));
+                    }
+                } else {
+                    if ((adverb.length !== 0) && (verb.length !== 0) && (noun.length !== 0)) {
+                        holdSentences.push(sentenceStruc3(adverb[randAdverb], verb[randVerb1], noun[randNoun1], verb[randVerb2]));
+                    } else if ((noun.length !== 0) && (determiner.length !== 0) && (verb.length !== 0)) {
+                        holdSentences.push(sentenceStruc6(verb[randVerb1], determiner[randDet], noun[randNoun2], verb[randVerb2]));
+                    }
+                }
+                thisResponse = [];
+
+
+            }).fail(function() {
+                //console.log('fail');
+            })
+        }
+    });
+
+        }
+
+        recognition.onspeechend = function() {
+            recognition.stop();
+        }
+
+        recognition.onnomatch = function(event) {
+            output.textContent = 'Im not sure what you said.';
+        }
+
+        recognition.onerror = function(event) {
+            output.textContent = 'There has been an error.';
+        }
+
+        var newHeight;
+
+        function setup() {
+            newHeight = windowHeight - 85;
+            var canvas = createCanvas(windowWidth,newHeight);
+            canvas.parent('sketch-holder');
+        }
+
+
+        function draw() {
+            background(5);
+            var posX = 10;
+            var posY = 20;
+            if (allWordsFormed) {
+                    for (var j = allWordsFormed.length; j > 0; j--) {
+                        textSize(16);
+                        fill(60);
+                        text(allWordsFormed[j], posX, posY);
+                        posY = posY + 15;
+
+                        if (posY > newHeight) {
+                            posX = posX + 65;
+                            posY = 20;
+                        }
+                    }
+
+            var xPos = 10;
+            var yPos = 45;
+            //could color certain words based on if they come from the input here by checking if the
+            if (holdSentences) {
+                for (var q = 0; q < holdSentences.length; q++) {
+                    fill(255, 252, 247);
+                    textFont('Helvetica');
+                    textSize(50);
+                    text(holdSentences[q], xPos, yPos);
+                    //xPos = holdSentences[j].length*30 + 20; //holdSentence[i].length will give length of the sentence which you can use to scale the position of the next sentence so they do not overlap.
+
+                    if (yPos > newHeight-30)
+                        {
+                            xPos = xPos + 700;
+                            yPos = 45;
+                        } else {
+                            xPos = xPos;
+                            yPos = yPos + 55;
+                        }
+                }
+            }
+            }
+            fill(51);
+        }
+
+        function sentenceStruc1(noun1, verb, noun2) {
+
+            return noun1 + " " + verb + " " + noun2;
+        }
+
+        function sentenceStruc2(determiner, noun, verb) {
+            return determiner + " " + noun + " " + verb;
+        }
+
+        function sentenceStruc3(adverb, verb1, noun, verb2) {
+            return adverb + " " + verb1 + " " + noun + " " + verb2;
+        }
+
+        function sentenceStruc4(adverb, noun) {
+            return adverb + " " + noun;
+        }
+
+        function sentenceStruc5(determiner, noun) {
+            return determiner + " " + noun;
+        }
+
+        function sentenceStruc6(verb1, determiner, noun, verb2) {
+            return verb1 + " " + determiner + " " + noun + " " + verb2;
+        }
+
+
+
+
+        //look into using $.each here
+//                    for (var j = 1; j < someResult.responseJSON.all.length; j++) {
+//                var APIkey = "dict.1.1.20181124T041325Z.e581716fc8d92efb.c64dc11cd7db2b6a9ae026ee97a33f55e62077c5";
+//                var defURL = "https://dictionary.yandex.net/api/v1/dicservice.json/lookup?key=" + APIkey + "&lang=en-en&text=" + someResult.responseJSON.all[j];
+//
+//                $.ajax({
+//                url: defURL,
+//                complete:function(newData){
+//                    if (newData.responseJSON.def.length == 1) {
+//                        console.log(newData.responseJSON.def[0].pos);
+//
+//                    if (newData.responseJSON.def[0].pos == 'verb') {
+//                        verb.push(newData.responseJSON.def[0].text);
+//                        randVerb1 = Math.floor(Math.random() * Math.floor(verb.length));
+//                        randVerb2 = Math.floor(Math.random() * Math.floor(verb.length));
+//                    } else if (newData.responseJSON.def[0].pos == 'adjective') {
+//                        adjective.push(newData.responseJSON.def[0].text);
+//                    } else if (newData.responseJSON.def[0].pos == 'conjunction') {
+//                        conjunction.push(newData.responseJSON.def[0].text);
+//                    } else if (newData.responseJSON.def[0].pos == 'noun') {
+//                        noun.push(newData.responseJSON.def[0].text);
+//                        randNoun1 = Math.floor(Math.random() * Math.floor(noun.length));
+//                        randNoun2 = Math.floor(Math.random() * Math.floor(noun.length));
+//                    } else if (newData.responseJSON.def[0].pos == 'determiner') {
+//                        determiner.push(newData.responseJSON.def[0].text);
+//                        randDet = Math.floor(Math.random() * Math.floor(determiner.length));
+//                    } else if (newData.responseJSON.def[0].pos == 'preposition') {
+//                        preposition.push(newData.responseJSON.def[0].text);
+//                    } else if (newData.responseJSON.def[0].pos == 'adverb') {
+//                        adverb.push(newData.responseJSON.def[0].text);
+//                        randAdverb = Math.floor(Math.random() * Math.floor(adverb.length));
+//                    } else if (newData.responseJSON.def[0].pos == 'invariant') {
+//                        invariant.push(newData.responseJSON.def[0].text);
+//                    } else if (newData.responseJSON.def[0].pos == 'interjection') {
+//                        interjection.push(newData.responseJSON.def[0].text);
+//                    } else if (newData.responseJSON.def[0].pos == 'determiner / pronoun') {
+//                        det_pronoun.push(newData.responseJSON.def[0].text);
+//                    } else if (newData.responseJSON.def[0].pos == 'pronoun') {
+//                        pronoun.push(newData.responseJSON.def[0].text);
+//                    } else if (newData.responseJSON.def[0].pos == 'participle') {
+//                        participle.push(newData.responseJSON.def[0].text);
+//                    } else if (newData.responseJSON.def[0].pos == 'numeral') {
+//                        numeral.push(newData.responseJSON.def[0].text);
+//                    } else {
+//                        console.log('idk what pos that is');
+//                    }
+//                }
+//
+//                    }
+//                });
+//            }
+
+
+    </script>
+
+</body>
+
+</html>

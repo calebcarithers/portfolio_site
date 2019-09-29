@@ -1,0 +1,108 @@
+{% extends "base.html" %}
+
+{% block analytics %}
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122350886-3"></script>
+        <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-122350886-3');
+        </script>
+{% endblock %}
+
+{% block head %}
+    <script src="static/Resources/Libraries/p5.min.js"></script>
+    <script src="static/Resources/Libraries/p5.dom.min.js"></script>
+    <script src="static/Resources/Scripts/calebcarithers.js"></script>
+    <title>Caleb Carithers</title>
+
+    <style>
+        body,html {
+            height: 100%;
+            font-family: monospace;
+        }
+
+        .my-container {
+/*            border: 2px dashed blue;*/
+        }
+
+        .my-row {
+/*             border: 2px solid red;*/
+        }
+
+        .my-col {
+/*            border: 1px dashed black;*/
+            text-align: center;
+            justify-content: center;
+        }
+
+        .my-col2 {
+/*            border: 1px dashed black;*/
+        }
+
+        .items {
+            line-height: 14px;
+            text-align: left;
+/*            border: 1px solid green;*/
+            width: 100px;
+        }
+
+        #calebcarithers {
+/*            border: 1px dotted red;*/
+            height: 15px;
+        }
+    </style>
+
+    <script>
+            window.onload = pickSketch();
+    </script>
+
+{% endblock %}
+
+{% block content %}
+    <div class="container my-container h-100">
+<!--        <div class="row mobile-sketch">-->
+<!--            <div class="col">-->
+<!--                <div id="calebcarithers"></div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+        <div class="row h-100 justify-content-center align-items-center my-row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6 my-col desktop-sketch">
+                    <div id="calebcarithers"></div>
+            </div>
+
+            <div class="col-6 my-col2">
+                <div class="row justify-content-center align-items-center my-row">
+<!--                    <div class="col-6">-->
+<!--                        <img src="/static/Resources/Photos/Nebula/screen.PNG" height="100px" width="100px">-->
+<!--                        <img src="/static/Resources/Photos/Painthead/1no_white.jpg" height="100px" width="100px">-->
+<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
+<!--&lt;!&ndash;                    <div class="col-6">&ndash;&gt;-->
+<!--                        <img src="/static/Resources/Photos/Bloonnoise/right.jpg" height="100px" width="100px">-->
+<!--                        <img src="/static/Resources/Photos/Wordplay/wordplay.PNG" height="100px" width="100px">-->
+<!--                    </div>-->
+                        <div class="items">
+                            <a href="what-nebula/">nebula</a><br>
+                            <a href="what-painthead.html">painthead</a><br>
+                            <a href="what-wordplay.html">wordplay</a><br>
+                            <a href="what-bloons.html">bloonNoise</a><br>
+                            <a href="what-storymakar.html">storyMakAR</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center align-items-center">
+            <div class="col-2">
+                <a href="static/Resources/CalebCarithers_Resume.pdf" target="_blank">resume</a>
+            </div>
+
+            <br><br>
+
+        </div>
+    </div>
+{% endblock %}

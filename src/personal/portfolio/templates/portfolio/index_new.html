@@ -1,0 +1,226 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css" href="/static/style.css">
+<title>Caleb Carithers</title>
+{% endblock %}
+
+{% block content %}
+    <div class="container my-container h-100">
+
+        <div class="row intro-text-row mt-2 first-row">
+
+<!--LEFT COL-->
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 headTitleCol left-col">
+                <p class="responsiveText"><span style="font-weight: 700;">Caleb Carithers</span>: making things you [interact with,
+                    yell at, click on, play online, ...]. If you’d like to chat, <a class="rounded" href="mailto: calebcarithers@me.com">email</a> me or,
+                        grab my number from my <a class="rounded" href="{% static 'Resources/CalebCarithers_Resume.pdf' %}">resume</a>.</p>
+            </div>
+
+            <div class="col my-col text-center arrow-small-view" style="font-size: 35px;">
+                <a id="myButton" class="rounded">&darr;</a>
+            </div>
+
+<!--RIGHT COL-->
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 right-col align-items-center">
+                <div class="row my-row image-row" id="scrollToSmall">
+                    <div class="col my-col">
+                            <a href="/what-news-jpg"><img class="hover-change rounded" src="/static/Resources/Photos/News_jpg/1.PNG" height="150px" style="margin: auto; display: block"></a>
+                    </div>
+                    <div class="col-4 text-left my-col img-description my-auto">
+                        <a href="/what-news-jpg"><p class="hover-change rounded"><span style="font-weight: 700;">news.jpg</span>: python, web</p></a>
+                    </div>
+                </div>
+
+                <div class="row my-row image-row">
+                    <div class="col my-col">
+                        <a href="/what-painthead"><img class="hover-change rounded" src="/static/Resources/Photos/Painthead/1no_white.jpg" height="150px" style="margin: auto; display: block"></a>
+                    </div>
+                    <div class="col-4 text-left my-col img-description my-auto">
+                        <a href="/what-painthead"><p class="hover-change rounded"><span style="font-weight: 700;">painthead</span>: p5.js, web</p></a>
+                    </div>
+                </div>
+
+
+                <div class="row my-row image-row">
+                    <div class="col my-col">
+                        <a href="/what-nebula"><img class="hover-change rounded" src="/static/Resources/Photos/Nebula/screen.png" height="150px" style="margin: auto; display: block"></a>
+                    </div>
+                    <div class="col-4 text-left my-col img-description my-auto">
+                        <a href="/what-nebula"><p class="hover-change rounded"><span style="font-weight: 700;">Nebula</span>: Unity, C#, WebGL</p></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <div class="row no-gutters arrow-big-view my-row">
+            <div class="col my-col text-center" style="font-size: 35px;">
+                <a id="myButton" class="rounded">&darr;</a>
+            </div>
+        </div>
+
+
+        <div class="row my-row new-image-row break-row" id="scrollToBig">
+            <div class="col my-col">
+                <a href="/what-wordplay"><img class="hover-change rounded" src="/static/Resources/Photos/Wordplay/wordplay.PNG" height="150px" style="margin: auto; display: block"></a>
+            </div>
+            <div class="col-4 text-left my-col img-description my-auto">
+                <a href="/what-wordplay"><p class="hover-change rounded"><span style="font-weight: 700;">wordplay</span>: p5.js, </p></a>
+            </div>
+        </div>
+
+        <div class="row my-row new-image-row">
+            <div class="col my-col">
+                <a href="/what-bloonnoise"><img class="hover-change rounded" src="/static/Resources/Photos/Bloonnoise/right.jpg" height="200px" style="margin: auto; display: block"></a>
+            </div>
+            <div class="col-4 text-left my-col img-description my-auto">
+                <a href="/what-bloonnoise"><p class="hover-change rounded"><span style="font-weight: 700;">Bloonnoise</span>: openFrameworks, arduino</p></a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    $(document).ready(function() {
+
+    function isTouchDevice() {
+        return 'ontouchstart' in document.documentElement;
+    }
+
+    if (isTouchDevice()) {
+
+    // Hover effect for project images, description, and arrow buttons
+    // [0] -> image
+    // [1] -> text
+        $('.image-row, .new-image-row').on('touchstart', function() {
+            $(this).find(".hover-change")[0].style.background = "#e3e15f";
+            $(this).find(".hover-change")[1].style.display = "inline-block";
+            $(this).find(".hover-change").css({"background":"yellow", "color":"#e3e15f"});
+        }).on('touchend', function() {
+            $(this).find(".hover-change")[0].style.background = "none";
+            $(this).find(".hover-change")[1].style.background = "none";
+            $(this).find(".hover-change").css({"background":"none", "color":"black"});
+        })
+
+        $('.responsiveText').find('a').each(function() {
+            arrowFunctions();
+            $(this).on('touchstart', function() {
+                $(this).css({"background":"yellow", "color":"#e3e15f"})
+            }).on('touchend', function() {
+                $(this).css({"background":"none", "color":"blue"})
+            })
+        })
+
+        $('.arrow-big-view, .arrow-small-view').find('#myButton').on('touchstart', function() {
+            $(this).css({"background":"yellow", "color":"#e3e15f"});
+        }).on('touchend', function() {
+            $(this).css({"background":"none", "color":"black"});
+        })
+    } else {
+
+    // Hover effect for project images, description, and arrow buttons
+    // [0] -> image
+    // [1] -> text
+        $('.image-row, .new-image-row').mouseover(function() {
+                $(this).find(".hover-change")[0].style.background = "#e3e15f";
+                $(this).find(".hover-change")[1].style.display = "inline-block";
+                $(this).find(".hover-change").css({"background":"yellow", "color":"#e3e15f"});
+        }).mouseout(function() {
+                $(this).find(".hover-change")[0].style.background = "none";
+                $(this).find(".hover-change")[1].style.background = "none";
+                $(this).find(".hover-change").css({"background":"none", "color":"black"});
+        })
+
+
+        $('.responsiveText').find('a').each(function() {
+            arrowFunctions();
+            $(this).mouseover(function() {
+                $(this).css({"background":"yellow", "color":"#e3e15f"});
+            }).mouseleave(function() {
+                $(this).css({"background":"none", "color":"blue"});
+            })
+        })
+
+
+        $('.arrow-big-view, .arrow-small-view').find('#myButton').mouseover(function() {
+            $(this).css({"background":"yellow", "color":"#e3e15f"});
+        }).on("mouseleave", function() {
+            $(this).css({"background":"none", "color":"black"});
+        })
+    } //end of isTouchDevice function
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+// Functionality for desktop/mobile layout (popping and adding arrow in correct position)
+        var mqBig = window.matchMedia('(min-width: 992px)');
+        var mqSmall = window.matchMedia('(max-width: 992px)');
+
+        var mqBigToSmall = window.matchMedia('(max-width: 992px)');
+        var mqSmallToBig = window.matchMedia('(min-width: 992px)');
+
+        if (mqBig.matches) {
+            $("div").remove(".arrow-small-view");
+            $(".break-row").css("margin-top", "7.5vh");
+        }
+
+        if (mqSmall.matches) {
+            $("div").remove(".arrow-big-view");
+            $(".break-row").css("margin-top", "7.5vh");
+        }
+
+        function changeForBig(e) {
+            if (e.matches) {
+                $("div").remove(".arrow-big-view");
+
+                var text = '<div class="col my-col text-center arrow-small-view" style="font-size: 35px;"><a id="myButton" class="rounded"> &darr;</a></div>';
+                $(".intro-text-row div:eq(0)").after(text);
+                console.log("injection happened");
+                $(".break-row").css("margin-top", "7.5vh");
+
+                arrowFunctions();
+            }
+        }
+
+        function changeForSmall(e) {
+            if (e.matches) {
+                $("div").remove(".arrow-small-view");
+
+                var text = '<div class="row no-gutters arrow-big-view"><div class="col my-col text-center" style="font-size: 35px;"><a id="myButton" class="rounded">&darr;</a></div></div>';
+                $(".container div:eq(0)").after(text);
+                $(".break-row").css("margin-top", "7.5vh");
+
+                arrowFunctions();
+            }
+        }
+
+        mqBigToSmall.addListener(changeForBig);
+        mqSmallToBig.addListener(changeForSmall);
+
+// Scroll animation effect for arrows
+        function arrowFunctions() {
+            $('.arrow-big-view, .arrow-small-view').find("#myButton").click(function() {
+
+            if (mqBig.matches){
+                $('html, body').animate({
+                    scrollTop: $("#scrollToBig").offset().top
+                    }, 500);
+            } else {
+                $('html, body').animate({
+                    scrollTop: $("#scrollToSmall").offset().top
+                    }, 500);
+            }
+         });
+    }
+})
+    </script>
+{% endblock %}
