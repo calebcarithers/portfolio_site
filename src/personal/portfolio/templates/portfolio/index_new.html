@@ -23,7 +23,7 @@
             </div>
 
             <div class="col my-col text-center arrow-small-view" style="font-size: 35px;">
-                <a id="myButton" class="rounded">&darr;</a>
+                <a class="myButton rounded">&darr;</a>
             </div>
 
 <!--RIGHT COL-->
@@ -64,7 +64,7 @@
 
         <div class="row no-gutters arrow-big-view my-row">
             <div class="col my-col text-center" style="font-size: 35px;">
-                <a id="myButton" class="rounded">&darr;</a>
+                <a class="myButton rounded">&darr;</a>
             </div>
         </div>
 
@@ -100,6 +100,7 @@
     // Hover effect for project images, description, and arrow buttons
     // [0] -> image
     // [1] -> text
+
         $('.image-row, .new-image-row').on('touchstart', function() {
             $(this).find(".hover-change")[0].style.background = "#e3e15f";
             $(this).find(".hover-change")[1].style.display = "inline-block";
@@ -119,16 +120,13 @@
             })
         })
 
-        $('.arrow-big-view, .arrow-small-view').find('#myButton').on('touchstart', function() {
+        $('.arrow-big-view, .arrow-small-view').find('.myButton').on('touchstart', function() {
             $(this).css({"background":"yellow", "color":"#e3e15f"});
         }).on('touchend', function() {
             $(this).css({"background":"none", "color":"black"});
         })
     } else {
 
-    // Hover effect for project images, description, and arrow buttons
-    // [0] -> image
-    // [1] -> text
         $('.image-row, .new-image-row').mouseover(function() {
                 $(this).find(".hover-change")[0].style.background = "#e3e15f";
                 $(this).find(".hover-change")[1].style.display = "inline-block";
@@ -149,8 +147,7 @@
             })
         })
 
-
-        $('.arrow-big-view, .arrow-small-view').find('#myButton').mouseover(function() {
+        $('.arrow-big-view, .arrow-small-view').find('.myButton').mouseover(function() {
             $(this).css({"background":"yellow", "color":"#e3e15f"});
         }).on("mouseleave", function() {
             $(this).css({"background":"none", "color":"black"});
@@ -182,7 +179,7 @@
             if (e.matches) {
                 $("div").remove(".arrow-big-view");
 
-                var text = '<div class="col my-col text-center arrow-small-view" style="font-size: 35px;"><a id="myButton" class="rounded"> &darr;</a></div>';
+                var text = '<div class="col my-col text-center arrow-small-view" style="font-size: 35px;"><a class="myButton" class="rounded"> &darr;</a></div>';
                 $(".intro-text-row div:eq(0)").after(text);
                 console.log("injection happened");
                 $(".break-row").css("margin-top", "7.5vh");
@@ -195,7 +192,7 @@
             if (e.matches) {
                 $("div").remove(".arrow-small-view");
 
-                var text = '<div class="row no-gutters arrow-big-view"><div class="col my-col text-center" style="font-size: 35px;"><a id="myButton" class="rounded">&darr;</a></div></div>';
+                var text = '<div class="row no-gutters arrow-big-view"><div class="col my-col text-center" style="font-size: 35px;"><a class="myButton" class="rounded">&darr;</a></div></div>';
                 $(".container div:eq(0)").after(text);
                 $(".break-row").css("margin-top", "7.5vh");
 
@@ -208,7 +205,23 @@
 
 // Scroll animation effect for arrows
         function arrowFunctions() {
-            $('.arrow-big-view, .arrow-small-view').find("#myButton").click(function() {
+
+            if (isTouchDevice()) {
+                $('.arrow-big-view, .arrow-small-view').find('.myButton').on('touchstart', function() {
+                    $(this).css({"background":"yellow", "color":"#e3e15f"});
+                }).on('touchend', function() {
+                    $(this).css({"background":"none", "color":"black"});
+                })
+            } else {
+                $('.arrow-big-view, .arrow-small-view').find('.myButton').mouseover(function() {
+                    $(this).css({"background":"yellow", "color":"#e3e15f"});
+                }).on("mouseleave", function() {
+                    $(this).css({"background":"none", "color":"black"});
+                })
+            }
+
+
+            $('.arrow-big-view, .arrow-small-view').find(".myButton").click(function() {
 
             if (mqBig.matches){
                 $('html, body').animate({
