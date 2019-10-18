@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 
 from portfolio.views import (home_view, nebula_view, painthead_view, wordplay_view, wordplay_gallery_view, bloonnoise_view,
-                             nebula_game_view, painthead_gallery_view, bloonnoise_view, news_jpg_view)
+                             nebula_game_view, painthead_gallery_view, bloonnoise_view, news_jpg_view, tami_view, engineering_redirect)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,5 +29,7 @@ urlpatterns = [
     path('wordplay/', wordplay_gallery_view, name='wordplay'),
     path('what-bloonnoise/', bloonnoise_view, name='what-bloonnoise'),
     path('play-nebula/', nebula_game_view, name='nebula'),
-    path('what-news-jpg/', news_jpg_view, name='news_jpg')
+    path('what-news-jpg/', news_jpg_view, name='news_jpg'),
+    path('what-tami/', tami_view, name='what-tami'),
+    path('engineering/', engineering_redirect, name='engineering')
 ]

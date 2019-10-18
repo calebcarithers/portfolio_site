@@ -29,12 +29,22 @@
 <!--RIGHT COL-->
 
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 right-col align-items-center">
+
                 <div class="row my-row image-row" id="scrollToSmall">
+                    <div class="col my-col">
+                            <a href="/what-tami"><img class="hover-change rounded" src="/static/Resources/Photos/Tami/tami.png" height="150px" style="margin: auto; display: block"></a>
+                    </div>
+                    <div class="col-4 text-left my-col img-description my-auto">
+                        <a href="/what-tami"><p class="hover-change rounded"><span style="font-weight: 700;">todayatmyinternship.com</span>: django</p></a>
+                    </div>
+                </div>
+
+                <div class="row my-row image-row">
                     <div class="col my-col">
                             <a href="/what-news-jpg"><img class="hover-change rounded" src="/static/Resources/Photos/News_jpg/1.PNG" height="150px" style="margin: auto; display: block"></a>
                     </div>
                     <div class="col-4 text-left my-col img-description my-auto">
-                        <a href="/what-news-jpg"><p class="hover-change rounded"><span style="font-weight: 700;">news.jpg</span>: python, web</p></a>
+                        <a href="/what-news-jpg"><p class="hover-change rounded"><span style="font-weight: 700;">news.jpg</span>: python, PIL, tweepy</p></a>
                     </div>
                 </div>
 
@@ -43,19 +53,10 @@
                         <a href="/what-painthead"><img class="hover-change rounded" src="/static/Resources/Photos/Painthead/1no_white.jpg" height="150px" style="margin: auto; display: block"></a>
                     </div>
                     <div class="col-4 text-left my-col img-description my-auto">
-                        <a href="/what-painthead"><p class="hover-change rounded"><span style="font-weight: 700;">painthead</span>: p5.js, web</p></a>
+                        <a href="/what-painthead"><p class="hover-change rounded"><span style="font-weight: 700;">painthead</span>: p5.js</p></a>
                     </div>
                 </div>
 
-
-                <div class="row my-row image-row">
-                    <div class="col my-col">
-                        <a href="/what-nebula"><img class="hover-change rounded" src="/static/Resources/Photos/Nebula/screen.png" height="150px" style="margin: auto; display: block"></a>
-                    </div>
-                    <div class="col-4 text-left my-col img-description my-auto">
-                        <a href="/what-nebula"><p class="hover-change rounded"><span style="font-weight: 700;">Nebula</span>: Unity, C#, WebGL</p></a>
-                    </div>
-                </div>
             </div>
 
         </div>
@@ -68,13 +69,21 @@
             </div>
         </div>
 
+        <div class="row my-row image-row">
+            <div class="col my-col">
+                <a href="/what-nebula"><img class="hover-change rounded" src="/static/Resources/Photos/Nebula/screen.png" height="150px" style="margin: auto; display: block"></a>
+            </div>
+            <div class="col-4 text-left my-col img-description my-auto">
+                <a href="/what-nebula"><p class="hover-change rounded"><span style="font-weight: 700;">Nebula</span>: Unity, C#</p></a>
+            </div>
+        </div>
 
         <div class="row my-row new-image-row break-row" id="scrollToBig">
             <div class="col my-col">
                 <a href="/what-wordplay"><img class="hover-change rounded" src="/static/Resources/Photos/Wordplay/wordplay.PNG" height="150px" style="margin: auto; display: block"></a>
             </div>
             <div class="col-4 text-left my-col img-description my-auto">
-                <a href="/what-wordplay"><p class="hover-change rounded"><span style="font-weight: 700;">wordplay</span>: p5.js, </p></a>
+                <a href="/what-wordplay"><p class="hover-change rounded"><span style="font-weight: 700;">wordplay</span>: p5.js</p></a>
             </div>
         </div>
 
@@ -214,9 +223,9 @@
                 })
             } else {
                 $('.arrow-big-view, .arrow-small-view').find('.myButton').mouseover(function() {
-                    $(this).css({"background":"yellow", "color":"#e3e15f"});
+                    $(this).css({"background":"yellow", "color":"#e3e15f", "cursor":"pointer"});
                 }).on("mouseleave", function() {
-                    $(this).css({"background":"none", "color":"black"});
+                    $(this).css({"background":"none", "color":"black", "cursor":"default"});
                 })
             }
 

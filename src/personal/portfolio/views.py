@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.template import Context, loader
+from django.http import HttpResponseRedirect
 
 
 
@@ -31,3 +32,9 @@ def bloonnoise_view(request):
 
 def news_jpg_view(request):
     return render(request, "portfolio/what-news-jpg.html", {})
+
+def tami_view(request):
+    return render(request, "portfolio/what-tami.html", {})
+
+def engineering_redirect(request):
+    return HttpResponseRedirect("https://calebcarithers.wixsite.com/mysite/engineering")
