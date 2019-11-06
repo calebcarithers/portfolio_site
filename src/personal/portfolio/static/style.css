@@ -5,6 +5,14 @@ body,html {
         font-weight: 400;
         }
 
+.hide {
+    display: none;
+}
+
+.abs {
+    position: absolute;
+}
+
 .intro-text-row {
      font-size: 70px;
      font-size: calc(1em + 5.05vmax);
@@ -43,7 +51,7 @@ body,html {
 }
 
 .image-row {
-    margin-top: 7.5vh;
+    margin-top: 5vh;
 }
 
 .new-image-row {
@@ -106,6 +114,22 @@ body,html {
     color: blue;
 }
 
+.andy-title {
+    font-family: "Helvetica";
+    font-size: 40px;
+}
+
+.ar-img img {
+    margin: 5px;
+}
+
+.ar-img img:hover {
+    opacity: 0.5;
+}
+
+ #andyLogo {
+    margin: 30px;
+ }
 /*
 
 .my-col {

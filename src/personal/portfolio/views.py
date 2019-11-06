@@ -3,8 +3,6 @@ from django.template import Context, loader
 from django.http import HttpResponseRedirect
 
 
-
-
 # Create your views here.
 def home_view(request):
     return render(request, "portfolio/index_new.html", {})
@@ -36,5 +34,35 @@ def news_jpg_view(request):
 def tami_view(request):
     return render(request, "portfolio/what-tami.html", {})
 
+def user_view(request):
+    return render(request, "portfolio/what-user.html", {})
+
+def iheart_view(request):
+    return render(request, "portfolio/what-iheart.html", {})
+
 def engineering_redirect(request):
     return HttpResponseRedirect("https://calebcarithers.wixsite.com/mysite/engineering")
+
+def AR1_view(request):
+    return render(request, "portfolio/AR_test_01.html", {})
+
+def AR2_view(request):
+    return render(request, "portfolio/AR_test_02.html", {})
+
+def AR3_view(request):
+    return render(request, "portfolio/AR_test_03.html", {})
+
+def AR4_view(request):
+    return render(request, "portfolio/AR_test_04.html", {})
+
+def AR5_view(request):
+    return render(request, "portfolio/AR_test_05.html", {})
+
+def AR6_view(request):
+    return render(request, "portfolio/AR_test_06.html", {})
+
+def AR7_view(request):
+    return render(request, "portfolio/AR_test_07.html", {})
+
+def AR_index_view(request):
+    return render(request, "portfolio/AR_index.html", {})

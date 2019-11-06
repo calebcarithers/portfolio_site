@@ -25,7 +25,7 @@ SECRET_KEY = '9b#)r@nok^=h&jx2k9p*i9o0lmd!fqb5x@z109i!1fj*72c-jv'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['.calebcarithers.com', '165.22.7.233', '127.0.0.1']
+ALLOWED_HOSTS = ['.calebcarithers.com', '165.22.7.233', '127.0.0.1', 'a770c43e.ngrok.io']
 
 
 # Application definition

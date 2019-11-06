@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+<title>Caleb Carithers</title>
+{% endblock %}
+
+{% block content %}
+    <div class="container my-container h-100">
+<!--        <div class="row">-->
+<!--            <div class="col text-center andy-title">-->
+<!--                andy boyle AR Collages-->
+<!--            </div>-->
+<!--        </div>-->
+        <div class="row">
+            <div class="col text-center">
+                <img id="andyLogo" src="{% static 'Resources/Photos/Andy-Boyle-AR/AB_logo_cut.png' %}" width="150px" class="img-fluid"/>
+            </div>
+        </div>
+        <div class="row ar-img">
+            <div class="col test-img">
+                <a href="/ar01"> <img src="{% static 'Resources/Photos/Andy-Boyle-AR/1.png'%}" class="img-fluid"/> </a>
+            </div>
+            <div class="col">
+                <a href="/ar02"> <img src="{% static 'Resources/Photos/Andy-Boyle-AR/2.png'%}" class="img-fluid"/> </a>
+            </div>
+        </div>
+        <div class="row ar-img">
+            <div class="col">
+               <a href="/ar03"> <img src="{% static 'Resources/Photos/Andy-Boyle-AR/3.png'%}" class="img-fluid"/> </a>
+            </div>
+            <div class="col">
+                <a href="/ar04"> <img src="{% static 'Resources/Photos/Andy-Boyle-AR/4.png'%}" class="img-fluid"/> </a>
+            </div>
+        </div>
+        <div class="row ar-img">
+            <div class="col">
+                <a href="/ar05"> <img src="{% static 'Resources/Photos/Andy-Boyle-AR/5.png'%}" class="img-fluid"/> </a>
+            </div>
+            <div class="col">
+                <a href="/ar06"> <img src="{% static 'Resources/Photos/Andy-Boyle-AR/6.png'%}" class="img-fluid"/> </a>
+            </div>
+        </div>
+        <div class="row ar-img">
+            <div class="col">
+                <a href="/ar07"> <img src="{% static 'Resources/Photos/Andy-Boyle-AR/7.png'%}" class="img-fluid"/> </a>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+{% endblock %}
