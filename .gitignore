@@ -1,4 +1,5 @@
 bin/
 lib/
 pyvenv.cfg
-
+src/static
+src/personal/portfolio/static

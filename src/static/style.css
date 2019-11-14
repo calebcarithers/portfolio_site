@@ -1,9 +1,41 @@
+@font-face {
+    font-family: 'altGothic';
+    src: url('/static/Resources/Fonts/alternate_gothic_no3_d_regular-webfont.woff2') format('woff2'),
+         url('/static/Resources/Fonts/alternate_gothic_no3_d_regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@media (max-width: 768px) {
+    .goaway {
+        display: none;
+    }
+}
+
+.tester {
+    font-family: "altGothic";
+    letter-spacing: 0.5px;
+}
+
+.andyTitle {
+    font-family: "altGothic";
+    font-size: 100px;
+}
 
 body,html {
     height: 100%;
     font-family: 'Roboto', sans-serif;
         font-weight: 400;
         }
+
+.hide {
+    display: none;
+}
+
+.abs {
+    position: absolute;
+}
 
 .intro-text-row {
      font-size: 70px;
@@ -13,27 +45,28 @@ body,html {
 
 @media (min-width: 576px) {
     .intro-text-row, .arrow-big-view, .arrow-small-view {
-            font-size:calc(2.8em + 3.6vw);
-            line-height: calc(0.75em + 1vh);
+            font-size:calc(2.8em + 3vw);
+            line-height: calc(0.75em + 1vh + 1.5vw);
     }
 }
 
 @media (min-width: 992px) {
     .intro-text-row, .arrow-big-view, .arrow-small-view {
         font-size:calc(1.7em + 2.8vw);
-        line-height: calc(0.75em + 1vh + 0.5vw);
+        line-height: calc(0.75em + 1vh + 0.7vw);
 
     }
 
 }
 
-.headTitleCol {
-    height: 90vh;
-}
-
 .img-description {
     font-size: 13px;
     line-height: 15px;
+}
+
+.img-description p{
+    padding-left: 2px;
+    padding-right: 2px;
 }
 
 .my-auto {
@@ -42,33 +75,26 @@ body,html {
 }
 
 .image-row {
-    margin-top: 7.5vh;
+    margin-top: 5vh;
 }
 
 .new-image-row {
     margin-top: 7.5vh;
 }
 
-.break-row-big {
-    margin-top: 7.5vh;
-}
-
-.break-row-small {
-    margin-top: 0px;
-}
 
 .new-image-row img {
-    padding-top: 4px;
-    padding-bottom: 4px;
-    padding-left: 8px;
-    padding-right: 8px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 6px;
+    padding-right: 6px;
 }
 
 .image-row img {
-    padding-top: 4px;
-    padding-bottom: 4px;
-    padding-left: 8px;
-    padding-right: 8px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    padding-left: 6px;
+    padding-right: 6px;
 }
 
 
@@ -87,3 +113,77 @@ body,html {
     background: none;
 }
 
+/*
+.responsiveText a:hover {
+    text-decoration: underline;
+    text-decoration-color: yellow;
+}
+*/
+
+.responsiveText a:link {
+    color: blue;
+    font-weight: 700;
+}
+/*
+.responsiveText a:hover {
+    background: yellow;
+    color: #e3e15f;
+}
+*/
+.responsiveText a:visited {
+    color: blue;
+}
+
+.responsiveText a:active {
+    color: blue;
+}
+
+.andy-title {
+    font-family: "Helvetica";
+    font-size: 40px;
+}
+
+.ar-img img {
+    margin: 5px;
+    max-width: 300px;
+}
+
+.ar-img img:hover {
+    opacity: 0.5;
+}
+
+#andyLogo {
+    margin: 30px;
+ }
+/*
+
+.my-col {
+    border-width: 2px;
+    border-style: solid;
+    border-color: green;
+}
+
+.my-row {
+    border-width: 2px;
+    border-style: solid;
+    border-color: red;
+}
+
+.left-col {
+border-width: 2px;
+    border-style: solid;
+    border-color: yellow;
+}
+
+.right-col {
+border-width: 2px;
+    border-style: solid;
+    border-color: orange;
+}
+
+.first-row {
+border-width: 2px;
+    border-style: solid;
+    border-color: black;
+}
+*/
