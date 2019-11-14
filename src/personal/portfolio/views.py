@@ -66,3 +66,6 @@ def AR7_view(request):
 
 def AR_index_view(request):
     return render(request, "portfolio/AR_index.html", {})
+
+def AB_AR_view(request):
+    return render(request, "portfolio/what-ab-ar.html", {})

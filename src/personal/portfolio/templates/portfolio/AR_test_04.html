@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Andy Boyle Collages</title>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-122350886-3"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-122350886-3');
+    </script>
+
+    <!-- We've included a slightly modified version of A-Frame, which fixes some polish concerns -->
+    <script src="//cdn.8thwall.com/web/aframe/8frame-0.8.2.min.js"></script>
+
+    <!-- XR Extras - provides utilities like load screen, almost there, and error handling.
+         See github.com/8thwall/web/xrextras -->
+    <script src="/static/Resources/xrextras/dist/xrextras.js"></script>
+
+    <!-- 8thWall Web - Replace the app key here with your own app key -->
+    <script async src="//apps.8thwall.com/xrweb?appKey=qQcxgTMrXpyX8N7cVdnSnZKsTnm7LvYe0k3RU9kbv4c8K2NYbBef9tnXS6HwLsQSawzjcC"></script>
+      
+      <script>
+        AFRAME.registerComponent('myscene', {
+            init: function () {
+                var scene = this.el.sceneEl;
+                var onBoard = document.querySelector('#onboarding');
+                scene.addEventListener('realityready', () => {
+                    console.log("reality ready");
+                    onBoard.classList.remove("hide");
+                    onBoard.classList.add("show");
+                    window.addEventListener('touchstart', () => {
+                        onBoard.classList.remove("show");
+                        onBoard.classList.add("hide");
+                    })
+                });
+            },
+            
+        });
+      </script>
+  </head>
+    
+  <body>
+    <!-- Add the 'xrweb' attribute to your scene to make it an 8th Wall Web A-FRAME scene. -->
+        <div id="onboarding" class="absolute-fill hide">
+            [show camera flat plane & tap to reposition collage]
+        </div>
+      
+    <a-scene
+      xrweb
+      xrextras-tap-recenter
+      xrextras-almost-there
+      xrextras-loading
+      xrextras-runtime-error
+      myscene>
+    <a-assets>-->
+        <img id="0" src="/static/Resources/Photos/Assets/Collage_04/Resize/Compressed/BB_04_L1.png">
+        <img id="1" src="/static/Resources/Photos/Assets/Collage_04/Resize/Compressed/BB_04_L2.png">
+        <img id="2" src="/static/Resources/Photos/Assets/Collage_04/Resize/Compressed/BB_04_L3.png">
+        <img id="3" src="/static/Resources/Photos/Assets/Collage_04/Resize/Compressed/BB_04_L4.png">
+        <img id="4" src="/static/Resources/Photos/Assets/Collage_04/Resize/Compressed/BB_04_L5.png">
+        <img id="5" src="/static/Resources/Photos/Assets/Collage_04/Resize/Compressed/BB_04_L6.png">
+    </a-assets>
+
+        <a-camera position="0 8 9"></a-camera>
+        <a-image src="#5" position="0, 5, -5.5" scale="5 6.5 5"></a-image>
+        <a-image src="#4" position="0, 5, -3.5" scale="5 6.5 5"></a-image>
+        <a-image src="#3" position="0, 5, -1.5" scale="5 6.5 5"></a-image>
+        <a-image src="#2" position="0, 5, -1" scale="5 6.5 5"></a-image>
+        <a-image src="#1" position="0, 5, -0.5" scale="5 6.5 5"></a-image>
+        <a-image src="#0" position="0, 5.5, 0" scale="4 5.5 5.5"></a-image>
+    </a-scene>
+  </body>
+</html>

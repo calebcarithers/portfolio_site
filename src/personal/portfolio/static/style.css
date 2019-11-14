@@ -1,3 +1,27 @@
+@font-face {
+    font-family: 'altGothic';
+    src: url('/static/Resources/Fonts/alternate_gothic_no3_d_regular-webfont.woff2') format('woff2'),
+         url('/static/Resources/Fonts/alternate_gothic_no3_d_regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@media (max-width: 768px) {
+    .goaway {
+        display: none;
+    }
+}
+
+.tester {
+    font-family: "altGothic";
+    letter-spacing: 0.5px;
+}
+
+.andyTitle {
+    font-family: "altGothic";
+    font-size: 100px;
+}
 
 body,html {
     height: 100%;
@@ -14,7 +38,7 @@ body,html {
 }
 
 .intro-text-row {
-     font-size: 70px;
+
      font-size: calc(1em + 5.05vmax);
      line-height: calc(20px + 4.8vmax);
 }
@@ -121,13 +145,14 @@ body,html {
 
 .ar-img img {
     margin: 5px;
+    max-width: 300px;
 }
 
 .ar-img img:hover {
     opacity: 0.5;
 }
 
- #andyLogo {
+#andyLogo {
     margin: 30px;
  }
 /*
