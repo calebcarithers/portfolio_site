@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+<title>Caleb Carithers</title>
+{% endblock %}
+
+{% block content %}
+    <div class="container my-container h-100">
+
+        <div class="row pb-4 pt-2">
+            <div class="col text-center">
+                <a href="https://www.australiana.nyc" target="_blank"><img id="ausLogo" src="{% static 'Resources/Photos/Australiana/AustralianaLogo.png' %}" class="img-fluid"/></a>
+            </div>
+        </div>
+
+<!--        <div class="row justify-content-center pb-4">-->
+<!--            <div class="col text-center">-->
+<!--                site-->
+<!--            </div>-->
+<!--        </div>-->
+
+<!--        <div class="row mb-5">-->
+<!--            <div class="col text-center">-->
+<!--                some jewelry by alex darby-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    <div class="row justify-content-center">-->
+<!--        <div class="col-10 ausOuter rounded">-->
+        {% for instance in object_list %}
+
+
+        <div class="row justify-content-center">
+                <div class="col-xl-8 col-lg-8 col-md-8 col-sm-10 col-11 australiana rounded text-center">
+                    <div class="row">
+                        <div class="col text-left questionText">
+                            {{ instance.questionText }}
+                        </div>
+                    </div>
+
+                    {{instance.mainText}}
+
+                    <div class="row mt-1">
+                        <div class="col text-right ausDate">
+                            {{instance.created_at}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+        {% endfor %}
+        </div>
+<!--        </div>-->
+<!--    </div>-->
+{% endblock %}

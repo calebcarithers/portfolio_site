@@ -38,15 +38,44 @@ body,html {
 }
 
 .intro-text-row {
-
+     font-size: 70px;
      font-size: calc(1em + 5.05vmax);
      line-height: calc(20px + 4.8vmax);
+}
+
+.australiana {
+    font-family: 'Montserrat', sans-serif;
+    font-size: calc(1em + 1vmax);
+    /*background: rgb(252, 240, 240);*/
+    line-height: 23px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+#ausLogo {
+    width:300px;
+}
+
+.ausDate {
+    color: #fcf;
+    font-size: calc(0.2em + 1vmax);
+}
+
+.questionText {
+    color: #fcf;
+    font-size: calc(0.2em + 1vmax);
 }
 
 @media (min-width: 576px) {
     .intro-text-row, .arrow-big-view, .arrow-small-view {
             font-size:calc(2.8em + 3vw);
             line-height: calc(0.75em + 1vh + 1.5vw);
+    }
+
+    .australiana {
+        font-size: calc(1em + 1vmax);
+        line-height: 25px;
+        /*background: rgb(245, 230, 230);*/
     }
 }
 
@@ -55,6 +84,16 @@ body,html {
         font-size:calc(1.7em + 2.8vw);
         line-height: calc(0.75em + 1vh + 0.7vw);
 
+    }
+
+    .australiana {
+        font-size: calc(1em + 1.5vmax);
+        line-height: 40px;
+        /*background: rgb(245, 230, 230);*/
+    }
+
+    #ausLogo {
+        width:450px;
     }
 
 }

@@ -1,11 +1,12 @@
 from django.shortcuts import render
 from django.template import Context, loader
 from django.http import HttpResponseRedirect
+# from .models import australianaModel
 
 
 # Create your views here.
 def home_view(request):
-    return render(request, "portfolio/index_new.html", {})
+    return render(request, "portfolio/index_newer.html", {})
 
 def painthead_view(request):
     return render(request, "portfolio/what-painthead.html", {})
@@ -69,3 +70,12 @@ def AR_index_view(request):
 
 def AB_AR_view(request):
     return render(request, "portfolio/what-ab-ar.html", {})
+
+def jewelryphone_view(request):
+    return render(request, "portfolio/what-jewelryphone.html", {})
+
+def AB_3D_zine_tap_view(request):
+    return render(request, "portfolio/AB_3D_zine_tap.html", {})
+
+def AR_collage_experiment_view(request):
+    return render(request, "portfolio/what-ar-collage-experiments.html", {})

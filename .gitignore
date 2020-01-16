@@ -3,3 +3,4 @@ lib/
 pyvenv.cfg
 src/static
 src/personal/portfolio/static
+src/personal/portfolio/migrations

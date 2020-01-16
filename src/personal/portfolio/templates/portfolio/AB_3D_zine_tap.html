@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>8th Wall Web: Tap to place</title>
+
+    <!-- We've included a slightly modified version of A-Frame, which fixes some polish concerns -->
+    <script src="//cdn.8thwall.com/web/aframe/8frame-0.9.0.min.js"></script>
+    <!-- <script src="//cdn.8thwall.com/web/aframe/aframe-animation-component-5.1.2.min.js"></script> -->
+
+    <!-- XR Extras - provides utilities like load screen, almost there, and error handling.
+         See github.com/8thwall/web/xrextras -->
+    <script defer src="//cdn.8thwall.com/web/xrextras/xrextras.js"></script>
+
+    <!-- 8thWall Web - Replace the app key here with your own app key -->
+    <script async src="//apps.8thwall.com/xrweb?appKey=qQcxgTMrXpyX8N7cVdnSnZKsTnm7LvYe0k3RU9kbv4c8K2NYbBef9tnXS6HwLsQSawzjcC"></script>
+
+<!-- BP01, BP02, BP03, Face01, Face02, GreyPaper, LustSickText, SketchBling, SketchBorder -->
+    
+    <script>
+    const yOffset = 8;
+
+      // Component that places trees where the ground is clicked
+      AFRAME.registerComponent('tap-place', {
+        init: function() {
+            const ground = document.getElementById('ground');
+            const cam = document.querySelector('a-camera');
+
+            ground.addEventListener('click', event => {
+
+            // Create new entities & images for the new objects
+            const parentEntity = document.createElement('a-entity');
+
+            const lustSickModel = document.createElement('a-entity');
+            
+            const RLeg = document.createElement('a-image');
+            const LLeg = document.createElement('a-image');
+            const FaceC = document.createElement('a-image');
+            const FaceR = document.createElement('a-image');
+            const FaceL = document.createElement('a-image');
+            const GreyPaper = document.createElement('a-image');
+            const PinkPaper = document.createElement('a-image');
+            const LustSickText = document.createElement('a-image');
+            const SketchBling = document.createElement('a-image');
+            const SketchBorder = document.createElement('a-image');
+
+            const pointLight = document.createElement('a-entity');
+
+            // The raycaster gives a location of the touch in the scene
+            const touchPoint = event.detail.intersection.point
+            console.log("touch point:");
+            console.log(touchPoint);
+            console.log(touchPoint['x']);
+
+            console.log("Camera y");
+            console.log(cam.getAttribute('position')['y']);
+
+            // Set element's position
+            parentEntity.setAttribute('position', {
+                x: touchPoint['x'],
+                y: cam.getAttribute('position')['y'] - 5,
+                z: touchPoint['z']
+            });
+            PinkPaper.setAttribute('position', {
+                x: 0,
+                y: yOffset,
+                z: -4
+            });
+            GreyPaper.setAttribute('position', {
+                x: 0,
+                y: yOffset,
+                z: -2
+            });
+            LustSickText.setAttribute('position', {
+                x: 0,
+                y: yOffset,
+                z: -1
+            });
+            lustSickModel.setAttribute('position', {
+                x: -0.5,
+                y: yOffset,
+                z: 0
+            });
+            SketchBorder.setAttribute('position', {
+                x: 0,
+                y: yOffset,
+                z: 1
+            });
+            SketchBling.setAttribute('position', {
+                x: -0.3,
+                y: yOffset + 0.3,
+                z: 2
+            });
+            FaceL.setAttribute('position', {
+                x: 0.45,
+                y: yOffset,
+                z: 2.5
+            });
+            FaceR.setAttribute('position', {
+                x: -0.45,
+                y: yOffset,
+                z: 2.6
+            });
+            RLeg.setAttribute('position', {
+                x: 0,
+                y: yOffset,
+                z: 3
+            });
+            LLeg.setAttribute('position', {
+                x: 0,
+                y: yOffset,
+                z: 3.05
+            });
+            FaceC.setAttribute('position', {
+                x: -0.3,
+                y: yOffset + 0.2,
+                z: 3.1
+            });
+            pointLight.setAttribute('position', {
+                x: 0,
+                y: yOffset+2,
+                z: 4
+            })
+
+            // Positions not relative to parent entity 
+            {
+            // POSITIONS WITHOUT PARENT ENTITY
+
+            // PinkPaper.setAttribute('position', {
+            //     x: touchPoint['x'],
+            //     y: yOffset,
+            //     z: touchPoint['z']-4
+            // });
+
+            // GreyPaper.setAttribute('position', {
+            //     x: touchPoint['x'],
+            //     y: yOffset,
+            //     z: touchPoint['z']-2
+            // });
+
+            // LustSickText.setAttribute('position', {
+            //     x: touchPoint['x'],
+            //     y: yOffset,
+            //     z: touchPoint['z']-1
+            // });
+
+            // lustSickModel.setAttribute('position', {
+            //     x: touchPoint['x']-0.5,
+            //     y: yOffset,
+            //     z: touchPoint['z']
+            // });
+
+            // SketchBorder.setAttribute('position', {
+            //     x: touchPoint['x'],
+            //     y: yOffset,
+            //     z: touchPoint['z']+1
+            // });
+
+            // SketchBling.setAttribute('position', {
+            //     x: touchPoint['x']-0.3,
+            //     y: yOffset + 0.3,
+            //     z: touchPoint['z']+2
+            // });
+
+            // FaceL.setAttribute('position', {
+            //     x: touchPoint['x'] + 0.45,
+            //     y: yOffset,
+            //     z: touchPoint['z']+2.5
+            // });
+
+            // FaceR.setAttribute('position', {
+            //     x: touchPoint['x'] - 0.45,
+            //     y: yOffset,
+            //     z: touchPoint['z']+2.6
+            // });
+
+            // RLeg.setAttribute('position', {
+            //     x: touchPoint['x'],
+            //     y: yOffset,
+            //     z: touchPoint['z']+3
+            // });
+
+            // LLeg.setAttribute('position', {
+            //     x: touchPoint['x'],
+            //     y: yOffset,
+            //     z: touchPoint['z']+3.05
+            // });
+
+            // FaceC.setAttribute('position', {
+            //     x: touchPoint['x'] - 0.3,
+            //     y: yOffset + 0.2,
+            //     z: touchPoint['z']+3.1
+            // });
+
+            // pointLight.setAttribute('position', {
+            //     x: touchPoint['x'],
+            //     y: yOffset+2,
+            //     z: touchPoint['z'] + 4
+            // })
+}
+
+            // parentEntity.setAttribute('rot','');
+            // parentEntity.setAttribute('geometry', {
+            //     primitive: 'box',
+            //     width: 3,
+            //     height: 3
+            // })
+
+            parentEntity.setAttribute('scale', '0.5 0.5 0.5')
+
+            // Scale & Model/Image
+            PinkPaper.setAttribute('scale', '13 14 13');
+            PinkPaper.setAttribute('src', '#PinkPaper');
+
+            GreyPaper.setAttribute('scale', '12 12.5 12');
+            GreyPaper.setAttribute('src', '#GreyPaper');
+
+            LustSickText.setAttribute('scale', '11 12 12');
+            LustSickText.setAttribute('src', '#LustSickText');
+
+            lustSickModel.setAttribute('scale', '5 5 5');
+            lustSickModel.setAttribute('gltf-model', '#lustModel');
+
+            SketchBorder.setAttribute('scale', '10 11 11');
+            SketchBorder.setAttribute('src', '#SketchBorder');
+
+            SketchBling.setAttribute('scale', '10 10 10');
+            SketchBling.setAttribute('src', '#SketchBling');
+
+            FaceL.setAttribute('scale', '10 10 10');
+            FaceL.setAttribute('src', '#FaceL');
+
+            FaceR.setAttribute('scale', '10 10 10');
+            FaceR.setAttribute('src', '#FaceR');
+
+            RLeg.setAttribute('scale', '9 9 9');
+            RLeg.setAttribute('src', '#RLeg');
+
+            LLeg.setAttribute('scale', '9 9 9');
+            LLeg.setAttribute('src', '#LLeg');
+
+            FaceC.setAttribute('scale', '9 9 9');
+            FaceC.setAttribute('src', '#FaceC');
+
+            pointLight.setAttribute('light', {
+                type: "point",
+                color: "#adadad",
+                intensity: 9
+            })
+            // pointLight.setAttribute('geometry', {
+            //     primitive: 'box',
+            //     width: 1,
+            //     height: 1
+            // })
+            parentEntity.appendChild(PinkPaper);
+            parentEntity.appendChild(GreyPaper);
+            parentEntity.appendChild(LustSickText);
+            parentEntity.appendChild(lustSickModel);
+            parentEntity.appendChild(SketchBorder);
+            parentEntity.appendChild(SketchBling);
+            parentEntity.appendChild(FaceL);
+            parentEntity.appendChild(FaceR);
+            parentEntity.appendChild(RLeg);
+            parentEntity.appendChild(LLeg);
+            parentEntity.appendChild(FaceC);
+
+            parentEntity.appendChild(pointLight);
+
+            this.el.sceneEl.appendChild(parentEntity);
+            // newElement.addEventListener('model-loaded', () => {
+            //   // Once the model is loaded, we are ready to show it popping in using an animation
+            //   newElement.setAttribute('visible', 'true')
+            //   newElement.setAttribute('animation', {
+            //     property: 'scale',
+            //     to: '0.01 0.01 0.01',
+            //     easing: 'easeOutElastic',
+            //     dur: 800,
+            //   })
+            // })
+          });
+        }
+      })
+    </script>
+
+    <script>
+    AFRAME.registerComponent('rot', {
+      init: function() {
+        const el = this.el;
+        this.temp = 0;
+        console.log(this.el.object3D)
+      },
+      tick: function() {
+        this.el.setAttribute('rotation', `0 ${this.temp} 0`);
+        this.temp+=3;
+        // console.log(this.temp);
+      }
+    })
+    </script>
+  </head>
+
+  <body>
+    <!-- We must add the tap-place component to the scene so it has an effect -->
+    <a-scene
+      xrweb
+      tap-place
+      xrextras-almost-there
+      xrextras-loading
+      xrextras-runtime-error
+      renderer="colorManagement: true">
+
+      <!-- We can define assets here to be loaded when A-Frame initializes -->
+      <a-assets>
+        <a-asset-item id="lustModel" src="/static/Resources/Photos/AB-Zine/Assets/lustPuppy.gltf"></a-asset-item>
+        <img id="RLeg" src="/static/Resources/Photos/AB-Zine/Assets/BigImg-min/BP01-min.png"></img>
+        <img id="LLeg" src="/static/Resources/Photos/AB-Zine/Assets/BigImg-min/BP02-min.png"></img>
+        <img id="FaceC" src="/static/Resources/Photos/AB-Zine/Assets/BigImg-min/BP03-min.png"></img>
+        <img id="FaceR" src="/static/Resources/Photos/AB-Zine/Assets/BigImg-min/Face01-min.png"></img>
+        <img id="FaceL" src="/static/Resources/Photos/AB-Zine/Assets/BigImg-min/Face02-min.png"></img>
+        <img id="GreyPaper" src="/static/Resources/Photos/AB-Zine/Assets/BigImg-min/GreyPaper-min.png"></img>
+        <img id="PinkPaper" src="/static/Resources/Photos/AB-Zine/Assets/BigImg-min/PinkPaper-min.png"></img>
+        <img id="LustSickText" src="/static/Resources/Photos/AB-Zine/Assets/BigImg-min/LustSickText-min.png"></img>
+        <img id="SketchBling" src="/static/Resources/Photos/AB-Zine/Assets/BigImg-min/SketchBling-min.png"></img>
+        <img id="SketchBorder" src="/static/Resources/Photos/AB-Zine/Assets/BigImg-min/SketchBorder-min.png"></img>
+      </a-assets>
+
+      <!-- The raycaster will emit mouse events on scene objects specified with the cantap class -->
+      <a-camera
+        position="0 8 0"
+        raycaster="objects: .cantap"
+        cursor="
+          fuse: false;
+          rayOrigin: mouse;">
+      </a-camera>
+
+      <!-- <a-entity
+        light="type: directional;
+               intensity: 0.8;"
+        position="1 4.3 2.5">
+      </a-entity> -->
+
+      <!-- <a-light type="ambient" intensity="5"></a-light> -->
+
+      <!-- <a-entity id="parent" rot geometry='primitive: box; width: 1; height:1'></a-entity> -->
+
+      <!-- Adding the cantap class allows the ground to be clicked -->
+      <a-entity
+        id="ground"
+        class="cantap"
+        geometry="primitive: box"
+        material="color: #ffffff; transparent: true; opacity: 0.0"
+        scale="1000 2 1000"
+        position="0 -1 0">
+      </a-entity>
+    </a-scene>
+  </body>
+</html>

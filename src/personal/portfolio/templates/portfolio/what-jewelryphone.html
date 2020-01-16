@@ -1,0 +1,45 @@
+{% extends "detail_base.html" %}
+{% load static %}
+
+{% block head %}
+    <title>thejewelryphone</title>
+{% endblock %}
+
+{% block content %}
+    <div class="container my-container h-100">
+
+        <div class="row arrow mt-2">
+            <div class="col" style="font-size: 35px">
+                <a class="rounded" href="/">&larr;</a>
+            </div>
+        </div>
+
+        <div class="row intro-text-row mt-2">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-5 col-xl-5 headTitleCol">
+                    <p class="detailText"><span style="font-weight: 700;">thejewelryphone</span>: Interactive phone for <a href="https://www.australiana.nyc" target="_blank">Australiana</a>
+                        jewelry line launch. Users are asked a question about jewelry, their responses are recorded & transcribed, then pushed to
+                        <a style="word-wrap: break-word" href="https://www.thejewelryphone.nyc" target="_blank">thejewelryphone.nyc</a>.
+                        <br><br>
+
+                        View <a class="rounded" href="https://www.thejewelryphone.nyc" target="_blank">here</a>
+                        <br>
+                        <a class="rounded" style="font-size: 20px;" href="https://www.github.com/calebcarithers/Australiana" target="_blank">thoughts & source</a>
+                    </p>
+            </div>
+
+
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-7 col-xl-7 headTitleCol text-center">
+    <!--                    <div class="embed-responsive embed-responsive-1by1">-->
+    <!--                        <iframe class="embed-responsive-item" src="https://thejewelryphone.nyc/"></iframe>-->
+    <!--                    </div>-->
+               <div class="row">
+                    <div class="col">
+                        <a href="{% static 'Resources/Photos/thejewelryphone/bigphone.jpg' %}" target="_blank"> <img class="img-fluid pb-2" src="{% static 'Resources/Photos/thejewelryphone/bigphone.jpg' %}" style="width: 200px"/></a>
+                        <a href="{% static 'Resources/Photos/thejewelryphone/jewelryphoneguts.jpg' %}" target="_blank"> <img class="img-fluid" src="{% static 'Resources/Photos/thejewelryphone/jewelryphoneguts.jpg' %}" style="width: 350px"/> </a>
+                    </div>
+               </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

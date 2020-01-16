@@ -1,0 +1,190 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block head %}
+<script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
+<link rel="stylesheet" type="text/css" href="/static/style.css">
+<script src="/static/Resources/Scripts/index.js"></script>
+<title>Caleb Carithers</title>
+{% endblock %}
+
+{% block content %}
+    <div class="container my-container h-100">
+
+        <div class="row mt-3">
+            <div class="col" id="myname">
+                <h1 class="mb-0" style="font-weight: bold; display: inline">caleb carithers</h1>
+            </div>
+        </div>
+
+        <div class="row mt-3" style="position: relative">
+            <div class="col hide" id="imagename" style="position: absolute; top:-58px; pointer-events: none;">
+                <img src="/static/Resources/Photos/Name/pretti_name_smaller.svg" width="270px;" style="pointer-events:none;"/>
+            </div>
+        </div>
+
+        <!--   ZERO ROW     -->
+<!--        <div class="row">-->
+<!--            <div class="col-12 col-md-6">-->
+<!--                <div class="row my-row image-row">-->
+<!--                    <div class="col my-col">-->
+<!--                            <a href="/what-ar-collage"><img class="hover-change rounded" src="/static/Resources/Photos/AB-Zine/placeholder.jpg" height="150px" style="margin: auto; display: block"></a>-->
+<!--                    </div>-->
+<!--                    <div class="col-4 text-left my-col img-description my-auto" style="word-wrap: break-word;">-->
+<!--                        <a href="/what-ar-collage"><p class="hover-change rounded tami" name=""><span style="font-weight: 700;">AR Collage Experiments</span>: 8thwall, three.js, blender</p></a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+
+<!--            <div class="col-12 col-md-6">-->
+<!--                <div class="row my-row image-row">-->
+<!--                    <div class="col my-col">-->
+<!--                            <a href="/what-ab-ar"><img class="hover-change rounded" src="/static/Resources/Photos/Andy-Boyle-AR/AR-Street.jpg" height="150px" style="margin: auto; display: block"></a>-->
+<!--                    </div>-->
+<!--                    <div class="col-4 text-left my-col img-description my-auto" style="word-wrap: break-word;">-->
+<!--                        <a href="/what-ab-ar"><p class="hover-change rounded tami" name=""><span style="font-weight: 700;">something to make</span>: three.js, ml5</p></a>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+
+        <!--   FIRST ROW     -->
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <div class="row my-row image-row">
+                    <div class="col my-col">
+                            <a href="/what-thejewelryphone"><img class="hover-change rounded" src="/static/Resources/Photos/thejewelryphone/jewelryphone.jpg" height="150px" style="margin: auto; display: block"></a>
+                    </div>
+                    <div class="col-4 text-left my-col img-description my-auto" style="word-wrap: break-word;">
+                        <a href="/what-thejewelryphone"><p class="hover-change rounded tami" name=""><span style="font-weight: 700;">thejewelryphone</span>: raspberrypi, python, SpeechRecognition, django, html, css</p></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-6">
+                <div class="row my-row image-row">
+                    <div class="col my-col">
+                            <a href="/what-ab-ar"><img class="hover-change rounded" src="/static/Resources/Photos/Andy-Boyle-AR/AR-Street.jpg" height="150px" style="margin: auto; display: block"></a>
+                    </div>
+                    <div class="col-4 text-left my-col img-description my-auto" style="word-wrap: break-word;">
+                        <a href="/what-ab-ar"><p class="hover-change rounded tami" name=""><span style="font-weight: 700;">AR Collages for Schön! Magazine</span>: 8thwall, aframe, javascript, html, css</p></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--   SECOND ROW     -->
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <div class="row my-row image-row">
+                    <div class="col my-col">
+                        <a href="/what-nebula"><img class="hover-change rounded" src="/static/Resources/Photos/Nebula/screen.png" height="150px" style="margin: auto; display: block"></a>
+                    </div>
+                    <div class="col-4 text-left my-col img-description my-auto" style="word-wrap: break-word;">
+                        <a href="/what-nebula"><p class="hover-change rounded"><span style="font-weight: 700;">Nebula</span>: Unity, C#</p></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-6">
+                <div class="row my-row image-row">
+                    <div class="col my-col">
+                        <a href="/what-wordplay"><img class="hover-change rounded" src="/static/Resources/Photos/Wordplay/wordplay.PNG" height="150px" style="margin: auto; display: block"></a>
+                    </div>
+                    <div class="col-4 text-left my-col img-description my-auto" style="word-wrap: break-word;">
+                        <a href="/what-wordplay"><p class="hover-change rounded"><span style="font-weight: 700;">wordplay</span>: p5.js</p></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--   THIRD ROW     -->
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <div class="row my-row image-row">
+                    <div class="col my-col">
+                        <a href="/what-painthead"><img class="hover-change rounded" src="/static/Resources/Photos/Painthead/1no_white.jpg" height="150px" style="margin: auto; display: block"></a>
+                    </div>
+                    <div class="col-4 text-left my-col img-description my-auto">
+                        <a href="/what-painthead"><p class="hover-change rounded"><span style="font-weight: 700;">painthead</span>: p5.js</p></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-6">
+                <div class="row my-row image-row">
+                    <div class="col my-col">
+                            <a href="/what-news-jpg"><img class="hover-change rounded" src="/static/Resources/Photos/News_jpg/1.jpg" height="150px" style="margin: auto; display: block"></a>
+                    </div>
+                    <div class="col-4 text-left my-col img-description my-auto">
+                        <a href="/what-news-jpg"><p class="hover-change rounded"><span style="font-weight: 700;">news.jpg</span>: python, PIL, tweepy</p></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--   FOURTH ROW     -->
+        <div class="row">
+            <div class="col-12 col-lg-6">
+                <div class="row my-row image-row">
+                    <div class="col my-col">
+                        <a href="/what-bloonnoise"><img class="hover-change rounded" src="/static/Resources/Photos/Bloonnoise/right.jpg" height="175px" style="margin: auto; display: block"></a>
+                    </div>
+                    <div class="col-4 text-left my-col img-description my-auto">
+                        <a href="/what-bloonnoise"><p class="hover-change rounded"><span style="font-weight: 700;">Bloonnoise</span>: openFrameworks, arduino</p></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-12 col-lg-6">
+                <div class="row my-row image-row">
+                    <div class="col my-col">
+                        <a href="/what-i<3"><img class="hover-change rounded" src="/static/Resources/Photos/i<3/i<3.jpg" height="150px" style="margin: auto; display: block"></a>
+                    </div>
+                    <div class="col-4 text-left my-col img-description my-auto">
+                        <a href="/what-i<3"><p class="hover-change rounded"><span style="font-weight: 700;">i&#9829;</span>: video</p></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--   FIFTH ROW     -->
+            <div class="row">
+                <div class="col-12 col-lg-6">
+                    <div class="row my-row image-row">
+                        <div class="col my-col">
+                                <a href="/what-tami"><img class="hover-change rounded" src="/static/Resources/Photos/Tami/tami.png" height="150px" style="margin: auto; display: block"></a>
+                        </div>
+                        <div class="col-4 text-left my-col img-description my-auto" style="word-wrap: break-word;">
+                            <a href="/what-tami"><p class="hover-change rounded tami" name="todayatmyinternship"><span style="font-weight: 700;">todayatmyinternship.com</span>: django, javascript, html, css</p></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-6">
+                    <div class="row my-row image-row">
+                        <div class="col my-col">
+                            <a href="/what-user"><img class="hover-change rounded" src="/static/Resources/Photos/User/User.jpg" height="150px" style="margin: auto; display: block"></a>
+                        </div>
+                        <div class="col-4 text-left my-col img-description my-auto">
+                            <a href="/what-user"><p class="hover-change rounded"><span style="font-weight: 700;">User</span>: processing, arduino, ultrasonic sensor, force sensitive resistor</p></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+<!--        <footer class="mt-4 mb-2">-->
+<!--            <div class="row">-->
+<!--                <div class="col-12 text-center">-->
+<!--                    <a href="/static/Resources/CalebCarithers_Resume.pdf">cv</a>-->
+<!--                    <a href="www.github.com/calebcarithers" class="ml-3 mr-3">github</a>-->
+<!--                    <a href="www.github.com/calebcarithers">twitter</a>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </footer>-->
+    </div>
+{% endblock %}

@@ -19,7 +19,7 @@ from django.urls import path
 from portfolio.views import (home_view, nebula_view, painthead_view, wordplay_view, wordplay_gallery_view, bloonnoise_view,
                              nebula_game_view, painthead_gallery_view, bloonnoise_view, news_jpg_view, tami_view, user_view,
                              iheart_view, engineering_redirect, AR1_view, AR2_view, AR3_view, AR4_view, AR5_view, AR6_view, AR7_view,
-                             AR_index_view, AB_AR_view)
+                             AR_index_view, AB_AR_view, AB_3D_zine_tap_view, jewelryphone_view, AR_collage_experiment_view)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -54,5 +54,13 @@ urlpatterns = [
     path('AR07/', AR7_view, name='AR-collage-07'),
     path('ar07/', AR7_view, name='AR-collage-07'),
 
-    path('andyboyleAR/', AR_index_view, name='AR-index')
+    path('andyboyleAR/', AR_index_view, name='AR-index'),
+
+    path('abzine/', AB_3D_zine_tap_view, name='AB-Zine'),
+
+    # path('australiana/', australiana_view, name='australiana'),
+    # path('australiana/<str:remotetext>', australiana_view_update, name='australianaupdate'),
+
+    path('what-thejewelryphone', jewelryphone_view, name='jewelryphone'),
+    path('what-ar-collage/', AR_collage_experiment_view, name='what-ar-collage')
 ]
