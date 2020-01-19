@@ -1,0 +1,77 @@
+{% extends "detail_base.html" %}
+{% load static %}
+
+{% block head %}
+    <title>Sketches</title>
+{% endblock %}
+
+{% block content %}
+    <div class="container my-container h-100">
+
+        <div class="row arrow mt-2">
+            <div class="col" style="font-size: 35px">
+                <a class="rounded" href="/">&larr;</a>
+            </div>
+        </div>
+
+        <div class="row intro-text-row mt-2">
+            <div class="col-12">
+                <p class="detailText"><span style="font-weight: 700;">Sketches</span>: Generative design in three.js & ml5.<br>
+<!--                <a class="rounded" style="font-size: 20px;" href="https://github.com/calebcarithers/Schon-AR/" target="_blank">thoughts & source</a></p>-->
+            </div>
+        </div>
+
+<!--            <div class="row">-->
+<!--                <div class="col-6 mb-3 embed-responsive embed-responsive-1by1">-->
+<!--                    <video class="embed-responsive-item" loop muted autoplay height="300px">-->
+<!--                        <source src="{% static 'Resources/Photos/AB-Zine/1.mp4' %}" type="video/mp4"/>-->
+<!--                    </video>-->
+<!--                </div>-->
+<!--                <div class="col-6 embed-responsive embed-responsive-1by1">-->
+<!--                    <video class="embed-responsive-item" loop muted autoplay height="300px">-->
+<!--                        <source src="{% static 'Resources/Photos/AB-Zine/2.mp4' %}" type="video/mp4"/>-->
+<!--                    </video>-->
+<!--                </div>-->
+<!--            </div>-->
+
+        <div class="col-12 headTitleCol mb-3">
+            <div class="row">
+                <div class="col-12 col-lg-4 embed-responsive embed-responsive-1by1">
+                    <video class="embed-responsive-item" loop playsinline muted defaultMuted autoplay height="300px">
+                        <source src="{% static 'Resources/Photos/Sketches/eyeFollower2.mp4' %}" type="video/mp4"/>
+                    </video>
+                </div>
+                <div class="col-12 col-lg-4 my-auto">
+                    <div class="embed-responsive-item">
+                        <img src="{% static 'Resources/Photos/Sketches/blocks-new.jpg' %}" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-12 col-lg-4 embed-responsive embed-responsive-1by1">
+                    <video class="embed-responsive-item" loop playsinline muted defaultMuted autoplay height="300px">
+                        <source src="{% static 'Resources/Photos/Sketches/noseDraw.mp4' %}" type="video/mp4"/>
+                    </video>
+                </div>
+            </div>
+
+<!--            <div class="row mt-4">-->
+<!--                <div class="col-4 embed-responsive embed-responsive-1by1">-->
+<!--                    <video class="embed-responsive-item" loop muted autoplay height="300px">-->
+<!--                        <source src="{% static 'Resources/Photos/AB-Zine/1.mp4' %}" type="video/mp4"/>-->
+<!--                    </video>-->
+<!--                </div>-->
+<!--                <div class="col-4 embed-responsive embed-responsive-1by1">-->
+<!--                    <video class="embed-responsive-item" loop muted autoplay height="300px">-->
+<!--                        <source src="{% static 'Resources/Photos/AB-Zine/2.mp4' %}" type="video/mp4"/>-->
+<!--                    </video>-->
+<!--                </div>-->
+<!--                <div class="col-4 embed-responsive embed-responsive-1by1">-->
+<!--                    <video class="embed-responsive-item" loop muted autoplay height="300px">-->
+<!--                        <source src="{% static 'Resources/Photos/AB-Zine/2.mp4' %}" type="video/mp4"/>-->
+<!--                    </video>-->
+<!--                </div>-->
+<!--            </div>-->
+
+        </div>
+
+    </div>
+{% endblock %}

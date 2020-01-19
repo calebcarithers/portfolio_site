@@ -79,3 +79,6 @@ def AB_3D_zine_tap_view(request):
 
 def AR_collage_experiment_view(request):
     return render(request, "portfolio/what-ar-collage-experiments.html", {})
+
+def sketches_view(request):
+    return render(request, "portfolio/what-sketches.html", {})
